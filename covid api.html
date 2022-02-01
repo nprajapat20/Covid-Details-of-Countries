@@ -1,0 +1,142 @@
+<html >
+    <head>
+    <style>
+        .division{
+            display: flex;
+            flex-direction: row;
+        }
+        .heading{
+           background-image: url("https://www.thepatent.news/wp-content/uploads/2020/07/covid-19-mask-1024x684.jpg");
+    
+        height: 680px;
+        width: 1000px;
+        border-radius: 20px;
+        position: relative;
+        top: 3px;
+        bottom: 40px;
+        
+        font-size: 40px;
+        text-align: center;
+        color: #fdfdfc;
+        box-shadow: 0 4px 8px 0 rgba(73, 70, 70, 0.548), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        margin-bottom: 100px;
+        }
+        .heading:hover{
+        color: rgb(255, 255, 255);
+  text-shadow: 4px 4px 8px #000000;
+  box-shadow: 0 30px 30px 0 rgba(3, 0, 0, 0.377), 0 30px 30px 0 rgba(5, 0, 0, 0.404);
+ 
+       }
+       #bu{
+        font-size: 20px;
+        color:rgb(194, 236, 255);  
+background-color:#dd823b;  
+border-bottom:black 2px solid;  
+border-top:2px FF9933 solid; 
+      }
+            
+.button:hover {
+  border-radius: 10px;
+  transition: all 0.1s ease-out;
+  box-shadow: 0 5px 5px 0 rgb(184, 179, 179),0 17px 50px 0 rgba(0,0,0,0.19);
+  animation-name: example;
+  animation-duration: 2s;
+  animation-iteration-count: 3;
+}
+@keyframes example {
+  0%   {background-color: #c36e3e;left:0px; top:0px;}
+  25%  {background-color: #4d3c3c;left:20px; top:0px}
+  50%  {background-color: #7d3428;left:20px; top:20px;}
+  100% {background-color:#ad625d;}
+}
+
+
+    </style>
+     </head>
+    <body>
+    
+        <div class="division">
+        <div class="heading">
+           <div style="padding-top: 4%; padding-left: 20%;"> Covid Details of Countries </div>
+
+            <div style="margin-top: 5%; margin-left: 45%; margin-bottom: 5%;">
+               <br>  “Don't risk people's health-” </br>
+                Get vaccinated
+            </div>
+       
+        <div style="margin-left: 30%;">
+            Name of Country
+            <input type="text"  id="plant">
+        </div>
+        <button style="margin-top: 2%; margin-left: 10%;" class="button" id="bu" onclick="runclick()">
+         click here 
+         <br>   to see the details </br>  
+        </button> </div>
+        <div id="ulla" style="font-size: 25px; margin-top: 10%; margin-left: 10%;">
+            <img src="https://i.pinimg.com/474x/1b/2b/e2/1b2be2e1799873c7c8680cec6e0abd87.jpg" alt="">
+             </div> </div>
+           
+    </body>
+    <script>
+                
+          async function corona(beta){
+              console.log(typeof(beta));
+              let gana= await fetch("https://covid-api.mmediagroup.fr/v1/cases");
+              let answer= await gana.json();
+              let a="";
+          for(let i in answer[beta]["All"]){
+              a=a+" "+i+":"+answer[beta]["All"][i]+"<br>" ;
+          }
+              document.getElementById("ulla").innerHTML =``+a;
+              
+    
+        //   let gama=answer[beta].All.confirmed;
+        
+             
+            //   document.getElementById("ulla").innerHTML =gama;
+              
+              return JSON.stringify(gama);
+    
+          }
+    
+         
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //    function corona(input){
+    //     fetch('https://covid-api.mmediagroup.fr/v1/cases')
+    //         .then(response => response.json())
+    
+    //         .then((data) => {
+                 
+    //             var myData = data.input;
+    //             //  console.log(myData);
+    //             document.getElementById('alpha').innerHTML = `The name of the 
+    //             country is ${myData}. Total Confirmed Cases here is 
+    //             ${myData.confirmed}.`;
+    //             //   and the total Deaths cases here is 
+    //             // ${myData.TotalDeaths} and no. of people recovered are ${myData.NewRecovered} `;
+            
+            
+            
+    //         })
+    
+    //         .catch( Error => console.log(error))}
+            function runclick() {
+              let input =document.getElementById("plant").value;
+            //   let beta;
+              corona(input);
+             
+    
+          }
+    
+    </script>
+    
+    </html>
